@@ -26,7 +26,7 @@ Installation:
 
 Changelog:
 
-1.9.2 (by iionly):
+1.9.3 (by iionly):
 
 - Changed use of input/dropdown to input/select,
 - Cleaned up whitespaces.
