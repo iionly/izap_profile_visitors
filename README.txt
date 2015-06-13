@@ -1,9 +1,10 @@
-iZAP izap profile visitor for Elgg 1.9
-Latest Version: 1.9.2
-Released: 2013-11-09
+iZAP izap profile visitor for Elgg 1.9 - 1.11
+
+Latest Version: 1.9.3
+Released: 2015-06-13
 Contact: iionly@gmx.de
 License: GNU General Public License version 3
-Copyright: (C) iionly 2012-2013, (C) iZAP Web Solutions 2005-2013
+Copyright: (C) iionly 2012-2015, (C) iZAP Web Solutions 2005-2015
 
 
 The plugin allows to add a widget to the profile page / dashboard that shows the latest site members who visited this profile page. If this visitor is currently online, the icon shown in the widget has a green border. The number of visitors shown can be adjusted (5, 10, 15 , 20).
@@ -25,7 +26,12 @@ Installation:
 
 Changelog:
 
-1.9.1 (by iionly):
+1.9.2 (by iionly):
+
+- Changed use of input/dropdown to input/select,
+- Cleaned up whitespaces.
+
+1.9.2 (by iionly):
 
 - Updated for Elgg 1.9.
 

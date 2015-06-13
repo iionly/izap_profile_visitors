@@ -6,13 +6,12 @@
  * @author iZAP Team "<support@izap.in>"
  * @link http://www.izap.in/
  *
- * iionly; Version 1.9:
- * compatibility elgg-1.9
+ * iionly; Version 1.9 and newer
  */
 
 return array(
-'izapProfileVisitor:Widget' => 'Letzte Besucher der Profilseite',
-'izapProfileVisitor:WidgetDescription' => 'Dieses Widget zeigt Dir, wer Deine Profilseite zuletzt besucht hat.',
-'izapProfileVisitor:NumberOfVisitors' => 'Anzahl der anzuzeigenden Besucher',
-'izapProfileVisitor:NoVisits' => 'Es hat mich noch niemand besucht. :('
+	'izapProfileVisitor:Widget' => 'Letzte Besucher der Profilseite',
+	'izapProfileVisitor:WidgetDescription' => 'Dieses Widget zeigt Dir, wer Deine Profilseite zuletzt besucht hat.',
+	'izapProfileVisitor:NumberOfVisitors' => 'Anzahl der anzuzeigenden Besucher',
+	'izapProfileVisitor:NoVisits' => 'Es hat mich noch niemand besucht. :('
 );

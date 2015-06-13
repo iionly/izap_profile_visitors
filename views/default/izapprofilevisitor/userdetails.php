@@ -6,8 +6,8 @@
  * @author iZAP Team "<support@izap.in>"
  * @link http://www.izap.in/
  *
- * iionly; Version 1.9:
- * compatibility elgg-1.9
+ * iionly; Version 1.9 and newer
  */
+
 // iZAP visitor marker
 izapMarkVisitor();

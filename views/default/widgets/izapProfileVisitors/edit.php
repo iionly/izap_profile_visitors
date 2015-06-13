@@ -6,24 +6,24 @@
  * @author iZAP Team "<support@izap.in>"
  * @link http://www.izap.in/
  *
- * iionly; Version 1.9:
- * compatibility elgg-1.9
+ * iionly; Version 1.9 and newer
  */
 
 // set default value
 if (!isset($vars['entity']->num_display)) {
-        $vars['entity']->num_display = 5;
+	$vars['entity']->num_display = 5;
 }
 
 $params = array(
-        'name' => 'params[num_display]',
-        'value' => $vars['entity']->num_display,
-        'options' => array(5, 10, 15, 20),
+	'name' => 'params[num_display]',
+	'value' => $vars['entity']->num_display,
+	'options' => array(5, 10, 15, 20),
 );
-$dropdown = elgg_view('input/dropdown', $params);
+$dropdown = elgg_view('input/select', $params);
 
 ?>
+
 <div>
-        <?php echo elgg_echo('izapProfileVisitor:NumberOfVisitors'); ?>:
-        <?php echo $dropdown; ?>
+	<?php echo elgg_echo('izapProfileVisitor:NumberOfVisitors'); ?>:
+	<?php echo $dropdown; ?>
 </div>
