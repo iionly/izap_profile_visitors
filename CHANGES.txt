@@ -1,0 +1,36 @@
+Changelog
+=========
+
+1.9.4
+-----
+
+- Tested that the plugn works on Elgg 2.0 (therefore should also work on future Elgg 2.X versions),
+- composer.json added.
+
+1.9.3
+-----
+
+- Changed use of input/dropdown to input/select,
+- Cleaned up whitespaces.
+
+1.9.2
+-----
+
+- Updated for Elgg 1.9.
+
+1.8.2
+-----
+
+- Code-cleanup in the course of making the plugin compatible with Elgg 1.9,
+- Preventing php warning on empty arrays in case no one visited the profile page yet or no one who did is currently online.
+
+1.8.1
+-----
+
+- French translation added (thank to emanwebdev),
+- German translation added.
+
+1.8.0
+-----
+
+- Initial release for Elgg 1.8.

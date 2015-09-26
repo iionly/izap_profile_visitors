@@ -1,0 +1,24 @@
+{
+    "name": "iionly/izap_profile_visitors",
+    "description": "This plugin lets you know who visited your profile recently.",
+    "type": "elgg-plugin",
+    "keywords": [
+        "elgg",
+        "plugin"
+    ],
+    "homepage": "https://github.com/iionly/izap_profile_visitors",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "iionly",
+            "homepage": "https://github.com/iionly",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+            "issues": "https://github.com/iionly/izap_profile_visitors/issues"
+    },
+    "require": {
+        "composer/installers": ">=1.0.8"
+    }
+}
