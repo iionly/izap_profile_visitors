@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.3.5
+-----
+
+- Elgg 2.3 required at minimum,
+- Code cleanup and update to make use of new Elgg API functions and no longer use deprecated API functions,
+- Widget edit view changed to use a number input field instead of a select field to set number of recent profile page visitors.
+
 1.9.4
 -----
 

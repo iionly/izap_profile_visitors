@@ -1,6 +1,6 @@
 <?php
 /**
- * iZAP izap profile visitor
+ * iZAP Profile Visitors
  *
  * @license GNU Public License version 3
  * @author iZAP Team "<support@izap.in>"
@@ -12,43 +12,50 @@
 $MaxVistors = $vars['entity']->num_display;
 
 if (!$MaxVistors) {
-	$MaxVistors = 5;
+	$MaxVistors = 4;
 }
 
-$VisitorArray = izapVisitorList();
+$ProfileEntity = elgg_get_page_owner_entity();
+
+if (!$ProfileEntity) {
+	$ProfileEntity = elgg_get_logged_in_user_entity();
+}
+
+$Metadata = elgg_get_metadata([
+	'guid' => $ProfileEntity->guid,
+	'metadata_name' => 'izapProfileVisitor',
+	'limit' => $MaxVistors,
+]);
+
+$VisitorArray = [];
+if ($Metadata) {
+	$VisitorArray = unserialize($Metadata[0]->value);
+}
 
 if (!empty($VisitorArray) && count($VisitorArray) > 0) {
-	$VisitorArray = array_slice($VisitorArray, 0, $MaxVistors);
-	$online = find_active_users(array('seconds' => 600, 'limit' => false));
+	$online = find_active_users([
+		'seconds' => 300,
+		'limit' => false,
+	]);
 
 	if (!empty($online) && count($online) > 0) {
-		$onlineUsers = array();
+		$onlineUsers = [];
 		foreach ($online as $key => $entity) {
 			$onlineUsers[] = $entity->guid;
 		}
 	}
-
+	$Visitors = '';
 	foreach($VisitorArray as $VisitorGuid) {
 		$VisitorEntity = get_entity($VisitorGuid);
-		$icon = elgg_view_entity_icon($VisitorEntity, 'small');
-
 		if (is_array($onlineUsers)) {
-			if(in_array($VisitorGuid, $onlineUsers)) {
-				$Visitors .= '<div class="izapWrapperOnline">' . $icon . '</div>';
-			} else {
-				$Visitors .= '<div class="izapWrapper">' . $icon . '</div>';
-			}
+			$class = in_array($VisitorGuid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
 		} else {
-			$Visitors .= '<div class="izapWrapper">' . $icon . '</div>';
+			$class = ($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper";
 		}
+		$Visitors .= elgg_view_entity_icon($VisitorEntity, 'small', ['img_class' => $class]);
 	}
 } else {
-	$Visitors .= '<div>' . elgg_echo('izapProfileVisitor:NoVisits') . '</div>';
+	$Visitors = elgg_echo('izapProfileVisitor:NoVisits');
 }
 
-?>
-
-<div class="izapMargin">
-	<?php echo $Visitors;?>
-	<div style="clear:both"></div>
-</div>
+echo elgg_format_element('div', [], $Visitors);

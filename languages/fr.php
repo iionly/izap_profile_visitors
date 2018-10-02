@@ -1,6 +1,6 @@
 <?php
 /**
- * iZAP izap profile visitor French language pack
+ * iZAP Profile Visitors French language pack
  *
  * @license GNU Public License version 3
  * @author iZAP Team "<support@izap.in>"
@@ -9,9 +9,9 @@
  * iionly; Version 1.8 and newer
  */
 
-return array(
+return [
 	'izapProfileVisitor:Widget' => 'Profils des visiteurs récents',
 	'izapProfileVisitor:WidgetDescription' => 'Ce widget vous permet de savoir qui a visité votre profil récemment.',
 	'izapProfileVisitor:NumberOfVisitors' => 'Visiteurs ',
-	'izapProfileVisitor:NoVisits' => 'Personne n\'a encore visité mon profil. :('
-);
+	'izapProfileVisitor:NoVisits' => 'Personne n\'a encore visité mon profil. :(',
+];

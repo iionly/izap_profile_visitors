@@ -1,6 +1,6 @@
 <?php
 /**
- * iZAP izap profile visitor
+ * iZAP Profile Visitors
  *
  * @license GNU Public License version 3
  * @author iZAP Team "<support@izap.in>"
@@ -9,21 +9,20 @@
  * iionly; Version 1.8 and newer
  */
 
-// set default value
-if (!isset($vars['entity']->num_display)) {
-	$vars['entity']->num_display = 5;
+/* @var $widget ElggWidget */
+$widget = elgg_extract('entity', $vars);
+
+$count = (int) $widget->num_display;
+if ($count < 1) {
+	$count = 4;
 }
 
-$params = array(
+echo elgg_view_field([
+	'#type' => 'number',
+	'#label' => elgg_echo('izapProfileVisitor:NumberOfVisitors'),
 	'name' => 'params[num_display]',
-	'value' => $vars['entity']->num_display,
-	'options' => array(5, 10, 15, 20),
-);
-$dropdown = elgg_view('input/select', $params);
-
-?>
-
-<div>
-	<?php echo elgg_echo('izapProfileVisitor:NumberOfVisitors'); ?>:
-	<?php echo $dropdown; ?>
-</div>
+	'value' => $count,
+	'min' => 1,
+	'max' => 25,
+	'step' => 1,
+]);
