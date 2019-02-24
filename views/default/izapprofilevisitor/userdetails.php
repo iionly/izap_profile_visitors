@@ -38,7 +38,7 @@ if (($VisitorGuid != $ProfileGuid) && $VisitorEntity && $ProfileEntity) {
 		$Id = $Metadata->id;
 		$VisitorsArray = unserialize($Metadata->value);
 		array_unshift($VisitorsArray, $VisitorGuid);
-		$InsertArray = array_slice(array_unique($VisitorsArray), 0, 10);
+		$InsertArray = array_slice(array_unique($VisitorsArray), 0, 25);
 		$InsertArray = serialize($InsertArray);
 		$result = update_metadata($Id, 'izapProfileVisitor', $InsertArray, 'text', $ProfileOwner, ACCESS_PUBLIC);
 		if ($result !== false) {

@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.3.6
+-----
+
+- Fix: show the correct number of recent profile visitors in the widget (as set in the widget settings),
+- Fix: save up to 25 recent profile visitors (formerly max was 10) as the widget settings allows a maximum of 25.
+
 2.3.5
 -----
 

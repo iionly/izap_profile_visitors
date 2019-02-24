@@ -21,18 +21,23 @@ if (!$ProfileEntity) {
 	$ProfileEntity = elgg_get_logged_in_user_entity();
 }
 
-$Metadata = elgg_get_metadata([
+$md = elgg_get_metadata([
 	'guid' => $ProfileEntity->guid,
 	'metadata_name' => 'izapProfileVisitor',
-	'limit' => $MaxVistors,
+	'limit' => false,
 ]);
 
-$VisitorArray = [];
-if ($Metadata) {
-	$VisitorArray = unserialize($Metadata[0]->value);
+$Metadata = [];
+if ($md && count($md) == 1) {
+	$Metadata = $md[0];
+} else {
+	$Metadata = $md;
 }
 
-if (!empty($VisitorArray) && count($VisitorArray) > 0) {
+if ($Metadata) {
+	$VisitorsArray = unserialize($Metadata->value);
+	$VisitorsArray = array_slice($VisitorsArray, 0, $MaxVistors);
+
 	$online = find_active_users([
 		'seconds' => 300,
 		'limit' => false,
@@ -45,10 +50,10 @@ if (!empty($VisitorArray) && count($VisitorArray) > 0) {
 		}
 	}
 	$Visitors = '';
-	foreach($VisitorArray as $VisitorGuid) {
-		$VisitorEntity = get_entity($VisitorGuid);
+	foreach($VisitorsArray as $user_guid) {
+		$VisitorEntity = get_entity($user_guid);
 		if (is_array($onlineUsers)) {
-			$class = in_array($VisitorGuid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
+			$class = in_array($VisitorEntity->guid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
 		} else {
 			$class = ($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper";
 		}
