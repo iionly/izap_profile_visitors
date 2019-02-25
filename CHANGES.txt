@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.7
+-----
+
+- Fix: validate user GUIDs saved in recent profile visitors metadata array before trying to display the users in widgets to make sure that the saved GUIDs belong to a user entity and this user entity still exists.
+
 2.3.6
 -----
 

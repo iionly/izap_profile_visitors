@@ -52,12 +52,14 @@ if ($Metadata) {
 	$Visitors = '';
 	foreach($VisitorsArray as $user_guid) {
 		$VisitorEntity = get_entity($user_guid);
-		if (is_array($onlineUsers)) {
-			$class = in_array($VisitorEntity->guid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
-		} else {
-			$class = ($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper";
+		if ($VisitorEntity instanceof ElggUser) {
+			if (is_array($onlineUsers)) {
+				$class = in_array($VisitorEntity->guid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
+			} else {
+				$class = ($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper";
+			}
+			$Visitors .= elgg_view_entity_icon($VisitorEntity, 'small', ['img_class' => $class]);
 		}
-		$Visitors .= elgg_view_entity_icon($VisitorEntity, 'small', ['img_class' => $class]);
 	}
 } else {
 	$Visitors = elgg_echo('izapProfileVisitor:NoVisits');

@@ -1,7 +1,7 @@
 iZAP Profile Visitors for Elgg 2.3 and newer Elgg 2.X
 =====================================================
 
-Latest Version: 2.3.6  
+Latest Version: 2.3.7  
 Released: 2019-02-23  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 3  
