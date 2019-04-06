@@ -40,13 +40,16 @@ if (($VisitorGuid != $ProfileGuid) && $VisitorEntity && $ProfileEntity) {
 		array_unshift($VisitorsArray, $VisitorGuid);
 		$InsertArray = array_slice(array_unique($VisitorsArray), 0, 25);
 		$InsertArray = serialize($InsertArray);
-		$result = update_metadata($Id, 'izapProfileVisitor', $InsertArray, 'text', $ProfileOwner, ACCESS_PUBLIC);
+		$Metadata->name = 'izapProfileVisitor';
+		$Metadata->value_type = 'text';
+		$Metadata->value = $InsertArray;
+		$result = $Metadata->save();
 		if ($result !== false) {
 			elgg_delete_metadata(['metadata_id' => $Id]);
 		}
 	} else {
 		array_unshift($VisitorsArray, $VisitorGuid);
 		$InsertArray = serialize($VisitorsArray);
-		create_metadata($ProfileGuid, 'izapProfileVisitor', $InsertArray, 'text', $ProfileOwner, ACCESS_PUBLIC);
+		$ProfileEntity->setMetadata('izapProfileVisitor', $InsertArray, 'text');
 	}
 }

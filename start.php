@@ -13,8 +13,6 @@
 elgg_register_event_handler('init', 'system', 'izapProfileVisitors', 10000);
 
 function izapProfileVisitors() {
-	elgg_register_widget_type('izapProfileVisitors', elgg_echo('izapProfileVisitor:Widget'), elgg_echo('izapProfileVisitor:WidgetDescription'), ['profile', 'dashboard']);
-
 	elgg_extend_view('elgg.css', 'izapprofilevisitor/izapprofilevisitor.css');
 	elgg_extend_view('profile/details', 'izapprofilevisitor/userdetails', 1);
 }

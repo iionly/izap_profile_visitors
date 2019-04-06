@@ -10,8 +10,8 @@
  */
 
 return [
-	'izapProfileVisitor:Widget' => 'Recent profile visitors',
-	'izapProfileVisitor:WidgetDescription' => 'This widget lets you know who visited your profile recently.',
+	'widgets:izapProfileVisitors:name' => 'Recent profile visitors',
+	'widgets:izapProfileVisitors:description' => 'This widget lets you know who visited your profile recently.',
 	'izapProfileVisitor:NumberOfVisitors' => 'Visitors to display',
 	'izapProfileVisitor:NoVisits' => 'No one visited me yet. :(',
 ];
