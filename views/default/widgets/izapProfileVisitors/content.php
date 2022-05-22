@@ -9,11 +9,9 @@
  * iionly; Version 1.8 and newer
  */
 
-$MaxVistors = $vars['entity']->num_display;
+$widget = elgg_extract('entity', $vars);
 
-if (!$MaxVistors) {
-	$MaxVistors = 4;
-}
+$MaxVistors = (int) $widget->num_display ?: 4;
 
 $ProfileEntity = elgg_get_page_owner_entity();
 

@@ -9,20 +9,11 @@
  * iionly; Version 1.8 and newer
  */
 
-/* @var $widget ElggWidget */
 $widget = elgg_extract('entity', $vars);
 
-$count = (int) $widget->num_display;
-if ($count < 1) {
-	$count = 4;
-}
-
-echo elgg_view_field([
-	'#type' => 'number',
-	'#label' => elgg_echo('izapProfileVisitor:NumberOfVisitors'),
-	'name' => 'params[num_display]',
-	'value' => $count,
-	'min' => 1,
+echo elgg_view('object/widget/edit/num_display', [
+	'entity' => $widget,
+	'label' => elgg_echo('izapProfileVisitor:NumberOfVisitors'),
 	'max' => 25,
-	'step' => 1,
+	'default' => 4,
 ]);

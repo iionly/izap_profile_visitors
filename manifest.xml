@@ -3,7 +3,7 @@
 	<name>iZAP Profile Visitors</name>
 	<id>izap_profile_visitors</id>
 	<author>iionly (Elgg 1.8 and newer), iZAP Team</author>
-	<version>3.0.0</version>
+	<version>3.3.0</version>
 	<description>This plugin lets you know who visited your profile recently.</description>
 	<category>widgets</category>
 	<website>https://github.com/iionly</website>
@@ -11,6 +11,6 @@
 	<license>GNU General Public License (GPL) version 3</license>
 	<requires>
 		<type>elgg_release</type>
-		<version>3.0.0</version>
+		<version>3.3.0</version>
 	</requires>
 </plugin_manifest>
