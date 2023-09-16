@@ -36,9 +36,13 @@ if ($Metadata) {
 	$VisitorsArray = unserialize($Metadata->value);
 	$VisitorsArray = array_slice($VisitorsArray, 0, $MaxVistors);
 
-	$online = find_active_users([
-		'seconds' => 300,
+	$online = elgg_get_entities([
+		'type' => 'user',
 		'limit' => false,
+		'wheres' => function(\Elgg\Database\QueryBuilder $qb, $main_alias) {
+			return $qb->compare("{$main_alias}.last_action", '>=', 300, ELGG_VALUE_INTEGER);
+		},
+		'order_by' => new \Elgg\Database\Clauses\OrderByClause('e.last_action', 'DESC'),
 	]);
 
 	if (!empty($online) && count($online) > 0) {
@@ -52,9 +56,9 @@ if ($Metadata) {
 		$VisitorEntity = get_entity($user_guid);
 		if ($VisitorEntity instanceof ElggUser) {
 			if (is_array($onlineUsers)) {
-				$class = in_array($VisitorEntity->guid, $onlineUsers) ? "izapWrapperOnline" : (($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper");
+				$class = in_array($VisitorEntity->guid, $onlineUsers) ? "izapWrapperOnline" : (($ProfileEntity->isFriendOf($VisitorEntity->guid)) ? "izapWrapperFriend" : "izapWrapper");
 			} else {
-				$class = ($VisitorEntity->isFriend()) ? "izapWrapperFriend" : "izapWrapper";
+				$class = ($ProfileEntity->isFriendOf($VisitorEntity->guid)) ? "izapWrapperFriend" : "izapWrapper";
 			}
 			$Visitors .= elgg_view_entity_icon($VisitorEntity, 'small', ['img_class' => $class]);
 		}

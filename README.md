@@ -1,8 +1,8 @@
-iZAP Profile Visitors for Elgg 4.0 and newer Elgg 4.X
+iZAP Profile Visitors for Elgg 4.3 and newer Elgg 4.X
 =====================================================
 
-Latest Version: 4.0.0  
-Released: 2022-05-22  
+Latest Version: 4.3.0  
+Released: 2023-09-16  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 3  
 Copyright: (C) iionly, (C) iZAP Web Solutions
